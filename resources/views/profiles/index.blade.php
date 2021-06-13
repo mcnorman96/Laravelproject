@@ -4,10 +4,20 @@
 <div class="container">
    <div class="row">
     <div class="col-3">
-        <h1>yeet</h1>
+        <h1>{{ $user->username }}</h1>
     </div>
     <div class="col9">
-
+    <a href="#">Add new post</a>
+    <div class="follow" style="display:flex; justify-content: space-between;">
+        <div>Posts</div>
+        <div style="margin-left: 50px">Follows</div>
+        <div style="margin-left: 50px">Following</div>
+    </div>
+    <div class="description">
+        <div>{{ $user->profile->title }}</div>        
+        <div>{{ $user->profile->description }}</div>
+        <a href="{{ $user->profile->url }}">{{ $user->profile->url }}</a>
+    </div>
     </div>
    </div>
 
