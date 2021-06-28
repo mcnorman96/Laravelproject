@@ -4,21 +4,27 @@
 <div class="container">
    <div class="row">
     <div class="col-2">
-    <img src="/storage/{{ $user->profile->image }}" class="w-100 rounded-circle" alt="">
-        @can('update', $user->profile)
-            <a href="/profile/{{$user->id}}/edit">Edit profilelink </a>
-        @endcan
+        <img src="{{ $user->profile->profileImage() }}" class="w-100 rounded-circle" alt="">
+            @can('update', $user->profile)
+                <a href="/profile/{{$user->id}}/edit">Edit profilelink </a>
+            @endcan
     </div>
     <div class="col-9">
-    <h1>{{ $user->username }}</h1>
+    
+    <div class="d-flex align-items-center">
+        <h1>{{ $user->username }}</h1>
+        <follow-button user-id="{{ $user->id }}" follows="{{ $follows }}"></follow-button>
+    </div>
+    
+
     @can('update', $user->profile)
         <a href="/p/create">Add new post</a>
     @endcan
     
     <div class="follow" style="display:flex;">
         <div><strong>{{ $user->posts->count() }}</strong> Posts</div>
-        <div style="margin-left: 50px">Follows</div>
-        <div style="margin-left: 50px">Following</div>
+        <div style="margin-left: 50px"><strong>{{ $user->profile->followers->count() }}</strong> Followers</div>
+        <div style="margin-left: 50px"><strong>{{ $user->posts->count() }}</strong> Following</div>
     </div>
     <div class="description pt-3">
           
