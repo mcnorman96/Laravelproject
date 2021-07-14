@@ -22,9 +22,9 @@
     @endcan
     
     <div class="follow" style="display:flex;">
-        <div><strong>{{ $user->posts->count() }}</strong> Posts</div>
-        <div style="margin-left: 50px"><strong>{{ $user->profile->followers->count() }}</strong> Followers</div>
-        <div style="margin-left: 50px"><strong>{{ $user->posts->count() }}</strong> Following</div>
+        <div><strong>{{ $postcount }}</strong> Posts</div>
+        <div style="margin-left: 50px"><strong>{{ $followersCount }}</strong> Followers</div>
+        <div style="margin-left: 50px"><strong>{{ $followingCount }}</strong> Following</div>
     </div>
     <div class="description pt-3">
           
